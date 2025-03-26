@@ -1,0 +1,62 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+}
+h2 {
+    margin-top: 20px;
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination button {
+    margin: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.pagination button:hover {
+    background-color: #ddd;
+}
+.active {
+    background-color: blue;
+    color: white;
+}
+input {
+    padding: 8px;
+    margin: 5px 0;
+}
+button {
+    padding: 8px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+#addEmployee {
+    background-color: rgb(55, 201, 227);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+#addEmployee:hover {
+    background-color: #45a049;
+}
+

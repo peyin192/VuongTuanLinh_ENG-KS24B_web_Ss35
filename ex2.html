@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Manager</title>
+    <link rel="stylesheet" href="ex2.css">
+</head>
+<body>
+    <div class="container">
+        <button id="addBookmarkBtn">ADD BOOKMARK</button>
+
+        <div id="bookmarksList">
+        </div>
+
+        <div id="bookmarkForm" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add Bookmark</h2>
+                <label>Website Name</label>
+                <input type="text" id="websiteName" placeholder="Enter website name">
+
+                <label>Website URL</label>
+                <input type="url" id="websiteURL" placeholder="Enter website URL">
+
+                <button id="saveBookmark">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ex2.js"></script>
+</body>
+</html>
