@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>b5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <button>Thêm mới vào danh mục</button>
+    <div class="container mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search">
+            <button class="btn btn-danger" onclick="clearSearch()">X</button>
+            <button class="btn btn-success" onclick="searchProducts()">Search</button>
+        </div>
+        <div class="row" id="productList"></div>
+    </div>
+
+    <script>
+        const products = [
+        { id: 1, name: 'Laptop Dell XPS 15', price: 35990000, image: 'https://www.laptopvip.vn/images/detailed/31/notebook-xps-15-9530-t-black-g--1-~1-pkeb-ii-www.laptopvip.vn-1683083662.png', description: 'Laptop cao cấp với màn hình 15 inch, CPU Intel Core i7 và RAM 16GB.' },
+            { id: 2, name: 'iPhone 15 Pro Max', price: 32990000, image: 'https://th.bing.com/th/id/OIP.PO8M08Vxndz_455at0qGawHaFj?rs=1&pid=ImgDetMain', description: 'Điện thoại flagship của Apple với camera 48MP và chip A17 Pro.' },
+            { id: 3, name: 'Samsung Galaxy S24 Ultra', price: 28990000, image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRmnJjAYZ6c_Mq0tagJIThWMeVLxz4YBBmjqjKjph3LInZb9xIxkcnXbpYMX4ygCfpom0Z71DcGSeQxWothgba_lrwo7ZlVnEvp39KmOaVrCERupIW0d0hw', description: 'Điện thoại Android mạnh mẽ với bút S-Pen và camera siêu zoom.' },
+            { id: 4, name: 'Tai nghe Sony WH-1000XM5', price: 7990000, image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljv36f0uj8xuaf', description: 'Tai nghe chống ồn tốt nhất với thời lượng pin lên đến 30 giờ.' },
+            { id: 5, name: 'Apple Watch Series 9', price: 11990000, image: 'https://bgr.com/wp-content/uploads/2023/09/Apple-Watch-Series-9.jpg?quality=82&strip=all', description: 'Đồng hồ thông minh cao cấp với tính năng đo nhịp tim và hỗ trợ thể thao.' },
+            { id: 6, name: 'Loa JBL Charge 5', price: 3990000, image: 'https://vn.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw1e0fb111/pdp/JBL_Charge_5_Lifestyle1_904x560px.png', description: 'Loa Bluetooth chống nước với âm bass mạnh mẽ và pin 20 giờ.' }
+        ];
+
+        function displayProducts(filteredProducts) {
+            const productList = document.getElementById("productList");
+            productList.innerHTML = "";
+            
+            filteredProducts.forEach(product => {
+                const productCard = `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">${product.description}</p>
+                                <p class="card-text"><strong>${product.price.toLocaleString()} VND</strong></p>
+                                <a href="#" class="btn btn-primary">Buy</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.innerHTML += productCard;
+            });
+        }
+
+        function searchProducts() {
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query));
+            displayProducts(filteredProducts);
+        }
+
+        function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            displayProducts(products);
+        }
+
+        window.onload = () => displayProducts(products);
+        document.getElementById("searchInput").addEventListener("input", searchProducts);
+
+        function searchProducts() {
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query));
+            displayProducts(filteredProducts);
+        }
+
+        function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            displayProducts(products);
+        }
+
+        window.onload = () => displayProducts(products);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
